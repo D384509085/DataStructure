@@ -1,5 +1,6 @@
 #include<stdio.h>
- 
+#include<time.h>
+
 int count = 0;
 
 int power (int x, int n) {
@@ -23,11 +24,27 @@ int main () {
 	int result; 
 	int mcount;
 	int eachCount;
-	for (int n = 1; n < 100; n++) {
+	for (int n = 1; n < 10000; n++) {
+		float start = clock();
 		mcount = count;
-		power(1, n);
+		for (int j = 0; j <1000; j++) {
+			power(1, n);
+		}
 		eachCount = count - mcount;
-		printf("算%d次幂需要进行%d次乘法运算\n", n, eachCount);
+		float end = clock();
+		printf("算%d次幂需要进行%d次乘法运算,需要时间:%f\n", n, eachCount, end-start);
 	}
+	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+//
